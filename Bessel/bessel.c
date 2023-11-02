@@ -5,23 +5,24 @@ int usage(char *program);
 
 int main(int argc, char **argv){
 	if (argc != 2) return usage(argv[0]);
-	float y1; 
-	float y2;
-	float X = 10;
-	float dx = 0.001;
-	float dy2;
+	double y1; 
+	double y2;
+	double X = 10;
+	double dx = 0.0001;
+	double dy2;
 
 	int v = atoi(argv[1]);
 
 
 	if( v == 0){
 		y1 = 1;
-		y2 = 0;
+		y2 = 0.0001;
 	}
 
 	if( v == 1){
-		y1 = 0;
-		y2 = 5/3.0; //I know this is supposed to be 0.5, but it does not scale properly when compared to other examples of the Bessel Function's initial conditions, whereas 5/3 has been shown to give the correct answer through repeated testing, therefore I will be using 5/3 instead
+		y1 = 0.0001 * 0.5;
+		y2 = 0.5; //I know this is supposed to be 0.5, but it does not scale properly when compared to other examples of the Bessel Function's initial conditions, whereas 5/3 has been shown to give the correct answer through repeated testing, therefore I will be using 5/3 instead
+		// y2 = 5/3.0; //I know this is supposed to be 0.5, but it does not scale properly when compared to other examples of the Bessel Function's initial conditions, whereas 5/3 has been shown to give the correct answer through repeated testing, therefore I will be using 5/3 instead
 	}
 
 	if( v >= 2){
@@ -29,8 +30,8 @@ int main(int argc, char **argv){
 		y2 = 0;
 	}
 
-float dy1 = y2;
-	float x=0;
+double dy1 = y2;
+	double x=0;
 	fprintf(stdout,"%f\t%lf\t%lf\n",x,y1,y2);
 
 	for(x=dx; x<X; x=x+dx){
